@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <script>
+        /*
+      
+        </body>
+        </html>
+      */
+  </script>
+
+  <title>CBCR - Tutorial</title>
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="css/tutorial.css" type="text/css" media="screen" />
+  <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+  <link href='http://fonts.googleapis.com/css?family=Lora|Ubuntu' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+
+  <script src="js/jquery-1.11.0.js"></script>
+  <script src="js/tutorial.js"></script>
+
+  <script>
+    $(document).ready(function(){
+      bottom();
+     
+      //START
+      $("#begin").on("click", function(){
+        $("#tutorial").css({
+            "background-image": "url('img/counter.jpg')"
+        });
+        $("#bag").show();
+        $("#hint").show();
+        $(this).hide();
+      });
+      
+      $('#hint').on("click", function(){
+        $('#hint').popover({ 
+            html : true,
+            content: function(){
+              var hint = selectHint();
+              return hint;
+            }
+          });
+      });
+
+
+      //STEP 1
+      $("#bag").on("click", function(){
+        $(".resize").show();
+        $("#cheese").
+        animate({
+          "top":"10%"
+        },1000);
+        $("#bread").
+        animate({
+          "left":"17%",
+          "top":"10%"
+        },1000);
+        $("#bacon").
+        animate({
+          "left":"35%",
+          "top":"10%"
+        },1000);
+        $("#toothpick").
+        animate({
+          "left":"45%",
+          "top":"10%"
+        },1000);
+        $("#rollingpin").
+        animate({
+          "left":"60%",
+          "top":"10%"
+        },1000);
+        $("#knife").
+        animate({
+          "left":"75%",
+          "top":"10%"
+        },1000);
+        $(this).fadeOut(1000);
+        step1 = false;
+        step2a = true;
+      });
+      //alert("Great job! Step 1 is now complete!");
+
+      //STEP2
+      $("#bread").on("click", function(){
+        if(step2a == true) {
+          $(this).animate({
+            "left": "43%",
+            "top": "60%"
+          }, 1000);   
+        step2a = false;    
+        step2b = true;   
+        }
+      });
+      $("#rollingpin").on("click", function(){
+        if(step2b == true)
+        {
+        $(this).animate({
+          "left": "43%",
+          "top": "60%"
+        }, 1000, "linear", function(){
+          
+          for(i=0; i<5; i++){
+            flattenBread(function(){
+              console.log("callback");
+            });        
+          }
+
+          $("#rollingpin").slideUp().fadeOut(1000);
+          $('#bread img').delay(4000).fadeOut(250, function() {
+              $('#bread img').attr("src","img/bread.png");
+              $('#bread img').fadeIn(250);
+          });
+          $("#bread").delay(5000).animate({
+            "left":"15%",
+            "top":"10%"
+          }, 1500, "linear");
+
+        });
+        step2b = false;
+        step3a = true; 
+        }
+      });
+
+      //STEP 3
+      $("#cheese").on("click", function(){
+        if(step3a == true)
+        {
+        $(this).animate({
+          "left": "43%",
+          "top": "60%"
+        }, 1000);          
+        step3a = false;
+        step3b = true;
+        }
+      });
+      $("#knife").on("click", function(){
+        if(step3b == true)
+        {
+        $(this).animate({
+          "left": "43%",
+          "top": "60%"
+        }, 1000, "linear", function(){
+          
+          for(i=0; i<4; i++){
+            cutCheese(function(){
+              console.log("callback");
+            });        
+          }
+
+          $("#knife").slideUp().fadeOut(1000);
+          $('#cheese img').delay(3000).fadeOut(250, function() {
+              $('#cheese img').attr("src","img/cheese.png");
+              $('#cheese img').fadeIn(250);
+          });
+          $("#cheese").delay(4000).animate({
+            "left":"0",
+            "top":"10%"
+          }, 1500, "linear");
+        });
+        step3b = false; 
+        step4a = true;
+        }
+      });
+
+      //STEP 4
+      $("#bread").on("click", function(){
+        if(step4a == true)
+        {
+          $(this).animate({
+            "left": "43%",
+            "top": "60%"
+          }, 1000);
+          step4a = false;
+          step4b = true;
+        } 
+      });
+      $("#cheese").on("click", function(){
+        if(step4b == true)
+        {
+          $(this).animate({
+            "left": "43%",
+            "top": "60%"
+          }, 1000, "linear", function(){
+            
+            for(i=0; i<2; i++){
+              smearCheese(function(){
+                console.log("callback");
+              });        
+            }
+
+            $("#cheese").slideUp().fadeOut(1000);
+            $('#bread img').delay(5000).fadeOut(250, function() {
+                $('#bread img').attr("src","img/cheesebread.png");
+                $('#bread img').fadeIn(250);
+            });
+            $("#bread").delay(6000).animate({
+              "left":"5%",
+              "top":"10%"
+            }, 1500, "linear");
+          }); 
+          step4b = false;
+          step5a = true;
+        }
+      });
+
+      //STEP 5
+      $("#bread").on("click", function(){
+        if(step5a == true)
+        {
+          $(this).animate({
+            "left": "43%",
+            "top": "60%"
+          }, 1000);
+          step5a = false;
+          step5b = true;
+        } 
+      });
+      $("#bacon").on("click", function(){
+        if(step5b == true)
+        {
+          $(this).animate({
+            "left": "43%",
+            "top": "60%"
+          }, 1000, "linear", function(){
+            
+            for(i=0; i<1; i++){
+              wrapBacon(function(){
+                console.log("callback");
+              });        
+            }
+
+            $("#bacon").delay(4000).slideUp().fadeOut(1000);
+            $('#bread img').delay(4000).fadeOut(250, function() {
+                $('#bread img').attr("src","img/baconcheesebread.png");
+                $('#bread img').fadeIn(250);
+            });
+            $("#bread").delay(5000).animate({
+              "left":"20%",
+              "top":"10%"
+            }, 1500, "linear");
+          }); 
+          step5b = false;
+          step6a = true;
+        }
+      });
+
+      //STEP 6
+      $("#bread").on("click", function(){
+        if(step6a == true)
+        {
+          $(this).animate({
+            "left": "43%",
+            "top": "60%"
+          }, 1000);
+          step6a = false;
+          step6b = true;
+        } 
+      });
+      $("#toothpick").on("click", function(){
+        if(step6b == true)
+        {
+          $(this).animate({
+            "left": "43%",
+            "top": "50%"
+          }, 1000, "linear", function(){
+            
+            for(i=0; i<1; i++){
+              useToothpick(function(){
+                console.log("callback");
+              });        
+            }
+
+            $("#toothpick").delay(2500).slideUp().fadeOut(2500);
+            $('#bread img').delay(2500).fadeOut(250, function() {
+                $('#bread img').attr("src","img/baconcheesebread2.png");
+                $('#bread img').fadeIn(250);
+            });
+            $("#bread").delay(3000).animate({
+              "left":"45%",
+              "top":"40%"
+            }, 1500, "linear", function(){
+              $("#congratulations").show();
+              $("#clapping").show();
+            });
+          }); 
+          step6b = false;
+          step7  = true;
+        }
+      });
+
+    });
+  </script>
+
+
+
+
+</head>
+<body>
+    <header id="main">
+      <a id="logo" href="index.html"></a>
+      <nav class="navbar navbar-inverse navbar-static-top dropdown main-nav" role="navigation">
+        <div class="content">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div id="bs-example-navbar-collapse-1 content">
+            <ul id="collapse" class="main-nav">
+              <li class="tab"> 
+                <a class="nav-page" href="tutorial.html"> Interactive Tutorial </a>  
+              </li>
+              <li class="tab">
+                <a class="nav-page" href="gallery.html"> Gallery </a>
+              </li>
+              <li class="tab">
+                <a class="nav-page" href="resources.html"> Resources </a>
+              </li>
+            </ul>
+          </div>
+        <!-- /.navbar-collapse -->
+        </div>
+      <!-- /.container -->
+      <div class="title-img"><img alt="" src="img/tutorial_title.png"></div> 
+      </nav>
+    </header>
+            
+    <div id = "tutorial">
+      <!-- Button trigger modal -->
+      <button id ="begin" type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myModal">
+        Let's Cook!
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <h3 class="modal-title" id="myModalLabel" style="text-align:center">Welcome to Tim's Kitchen!</h3>
+            </div>
+            <div class="modal-body">
+              <p class="lead" style="text-align:center">
+              Today, we will be learning how to create a Crispy Bacon Cheese Roll.
+              </p>
+              Steps:
+              <ol>
+                <li> Take out the ingredients from the bag. </li>
+                <li> Flatten the bread with the rolling pin </li>
+                <li> Cut a slice of cheese from the cheeseblock </li>
+                <li> Place the slice of cheese onto the flattened bread </li>
+                <li> Wrap the bacon around each the roll</li>
+                <li> Pierce a toothpick through the bacon cheese bread </li>
+<!--                <li> Grab a pan and put the bacon cheese roll inside </li>
+                <li> Bake until cheese is melted and sides are brown and crispy </li> -->
+                <li> Enjoy! </li>
+              </ol>
+              <p class="lead" style="text-align:center">
+                If you need help, click the lightbulb!
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button id="close" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Animated Images -->
+
+      <div id="bread">
+      <img src="img/breadloaf.png" class="resize" />
+      </div>
+
+      <div id="cheese">
+      <img src="img/cheeseblock.png" class="resize" />
+      </div>
+
+      <div id="bacon">
+      <img src="img/bacon.png" class="resize" />
+      </div>
+
+      <div id="toothpick">
+      <img src="img/toothpick.png" class="resize" />
+      </div>
+
+      <div id="knife">
+      <img src="img/knife.png" class="resize" />
+      </div>
+
+      <div id="rollingpin">
+      <img src="img/rollingpin.png" class="resize" />
+      </div>
+
+      <div id="bag">
+      <img src="img/bag.png" style="height:400px; width:200px"/>
+      </div>
+
+      <div id="popover_content_wrapper" style="display: none">
+        <div>Click the Bag</div>
+      </div>
+
+      <div id="hint" data-placement='left' title="Hint:">
+      <img src="img/hint.png" style="height:100px; width:100px" />
+      </div>
+
+      <div id="congratulations">
+      <img src="img/congratulations.png" />
+      </div>
+
+      <div id="clapping">
+      <img src="img/clapping.gif" />
+      </div>
+
+    </div>
+
+
+         <hr>
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-xs-6">
+                    <p>&copy; CBCR Company <br>
+                    Site by Timothy Cheng </p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

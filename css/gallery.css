@@ -1,0 +1,53 @@
+.thumb {
+    margin-bottom: 30px;
+}
+.thumbnail img{
+    width:80%;
+    height: 200px;
+    overflow: auto;
+}
+@media screen and (max-width: 990px) {
+    .thumbnail img{
+        width:90%;
+        height: 200px;
+        overflow: auto;
+    }
+}
+@media screen and (max-width: 800px) {
+    .thumbnail img{
+        width:90%;
+        height: 200px;
+        overflow: auto;
+    }
+}
+@media screen and (max-width: 700px) {
+    .thumbnail img{
+        width:90%;
+        height: 200px;
+        overflow: auto;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .thumbnail img{
+        width:90%;
+        height: 200px;
+        overflow: auto;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .thumbnail img{
+        width:90%;
+        height: 200px;
+        overflow: auto;
+    }
+}
+a
+@media screen and (max-width: 500px) {
+    .thumbnail img{
+        width:90%;
+        height: 200px;
+        overflow: auto;
+    }
+}

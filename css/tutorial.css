@@ -1,0 +1,75 @@
+.btn-xlarge {
+    padding: 18px 28px;
+    font-size: 30px;
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+    }
+
+#tutorial {
+	background-image: url('../img/kitchen.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 650px;
+    position: relative;
+}
+#tutorial #begin {
+	left:45%;
+	top:40%;
+	position:relative;
+}
+
+#cheese, #bread, #bacon, #rollingpin, #knife, #toothpick,
+#bag, #hint, #congratulations, #clapping {
+	position:absolute;	
+	left: 0px;
+}
+
+.resize {
+	height: 200px;
+	width: 250px;
+	display: none;
+}
+@media (max-width: 800px) {
+.resize {
+    height: 125px;
+    width:150px;
+}
+}
+@media (max-width: 500px) {
+.resize {
+    height: 75px;
+    width:100px;
+}
+}
+
+#bag {
+	left:5%;
+	display: none;
+}
+
+#hint {
+	bottom:5%;
+	left:90%;
+	display: none;
+}
+
+#myPopoverContent {
+	display: none;
+}
+
+#congratulations {
+	left:30%;
+	display: none;
+}
+#clapping {
+	left:10%;
+	top:20%;
+	display: none;
+}
+#clapping img {
+	height:40%;
+	width:40%;
+}
